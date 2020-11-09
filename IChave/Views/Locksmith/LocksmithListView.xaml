@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="IChave.Views.Locksmith.LocksmithListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <RefreshView
+            Margin="10"
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+
+            <CollectionView
+                x:Name="collectionView"
+                ItemsSource="{Binding Locksmiths}"
+                SelectedItem="{Binding SelectedLocksmith, Mode=TwoWay}"
+                SelectionChangedCommand="{Binding EditServiceCommand}"
+                SelectionChangedCommandParameter="{Binding SelectedLocksmith}"
+                SelectionMode="Single"
+                VerticalOptions="FillAndExpand">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <Frame
+                                Margin="5"
+                                Padding="5"
+                                BackgroundColor="AliceBlue"
+                                CornerRadius="25"
+                                HasShadow="True"
+                                VerticalOptions="Start">
+
+                                <Grid HorizontalOptions="FillAndExpand">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="2" />
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="20" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Text="{Binding company_name}" />
+
+                                    <BoxView
+                                        Grid.Row="1"
+                                        HeightRequest="2"
+                                        HorizontalOptions="Fill"
+                                        Color="Gray" />
+
+                                    <Label
+                                        Grid.Row="2"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding bairro}" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding logradouro}" />
+
+                                    <Grid Grid.Row="4">
+                                        <Label Grid.Column="0" Text="{Binding numero}" />
+                                        <Label Grid.Column="1" Text="{Binding complemento}" />
+                                    </Grid>
+
+                                </Grid>
+
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>
