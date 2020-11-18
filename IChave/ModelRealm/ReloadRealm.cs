@@ -12,6 +12,7 @@ namespace IChave.ModelRealm
 
         public ReloadRealm()
         {
+            realm = Realm.GetInstance();
         }
 
         public ReloadRealm(string name)
