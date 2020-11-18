@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>IChave</string>
 	<key>CFBundleIdentifier</key>
-	<string>br.com.ichave.IChave</string>
+	<string>br.com.ovokore.IChave</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

@@ -75,8 +75,7 @@ namespace IChave.ViewModels.LoginSignUp
             try
             {
                 IsBusy = true;
-
-                if (Utils.EmailValidator(Email) && Utils.PasswordValidator(this.Password))
+                if (Utils.EmailValidator(Email) && Utils.PasswordValidator(Password))
                 {
                     User _user = new User
                     {

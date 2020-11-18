@@ -6,7 +6,7 @@
     xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="10">
+            <StackLayout Padding="10">
                 <Button
                     Grid.Row="0"
                     BackgroundColor="CadetBlue"

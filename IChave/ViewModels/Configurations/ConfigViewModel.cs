@@ -5,7 +5,6 @@ using IChave.ViewModels.Base;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
-using Realms;
 
 namespace IChave.ViewModels.Configurations
 {
@@ -32,11 +31,7 @@ namespace IChave.ViewModels.Configurations
             try
             {
                 IsBusy = true;
-                var realm = Realm.GetInstance();
-                realm.Write(() =>
-                {
-                    realm.RemoveAll<TokenRealm>();
-                });
+                new ReloadRealm().Logout();
                 await NavigationService.NavigateAsync("/NavigationPage/LoginView");
             }
             catch (Exception ex)

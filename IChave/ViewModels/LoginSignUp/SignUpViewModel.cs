@@ -104,27 +104,27 @@ namespace IChave.ViewModels.LoginSignUp
                 IsBusy = true;
                 UserVal _user = new UserVal()
                 {
-                    name = this.Name,
-                    cpf = this.Cpf,
-                    cell_phone = this.Cellphone,
-                    sex = this.Sex,
-                    birthdate = this.Birthdate,
-                    email = this.Email,
-                    confirm_email = this.ConfirmEmail,
-                    password = this.Password,
-                    confirm_password = this.ConfirmPassword
+                    name = Name,
+                    cpf = Cpf,
+                    cell_phone = Cellphone,
+                    sex = Sex,
+                    birthdate = Birthdate,
+                    email = Email,
+                    confirm_email = ConfirmEmail,
+                    password = Password,
+                    confirm_password = ConfirmPassword
                 };
                 var resultValidation = new UserValidator().Validate(_user);
                 if (resultValidation.IsValid)
                 {
                     var usuarioAPI = RestService.For<IRestApi>(EndPoints.BaseUrl);
-                    User _userDto = new User(_user);
+                    User user = new User(_user);
                     try
                     {
-                        var usuariosRetorno = await usuarioAPI.Create(_userDto);
+                        var usuariosRetorno = await usuarioAPI.Create(user);
                         if (usuariosRetorno.msg == MsgDTO.SUCESS)
                         {
-                            var loginRetorno = await usuarioAPI.Login(_userDto);
+                            var loginRetorno = await usuarioAPI.Login(user);
                             if (loginRetorno.msg == MsgDTO.SUCESS)
                             {
                                 var realm = Realm.GetInstance();

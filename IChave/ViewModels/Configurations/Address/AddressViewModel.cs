@@ -8,7 +8,6 @@ using IChave.ViewModels.Base;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
-using Realms;
 
 namespace IChave.ViewModels.Configurations.Address
 {

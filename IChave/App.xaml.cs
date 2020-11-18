@@ -41,6 +41,7 @@ namespace IChave
             containerRegistry.RegisterForNavigation<LoginView, LoginViewModel>();
             containerRegistry.RegisterForNavigation<SignUpView, SignUpViewModel>();
 
+            containerRegistry.RegisterForNavigation<LocksmithListView, LocksmithListViewModel>();
             containerRegistry.RegisterForNavigation<LocksmithView, LocksmithViewModel>();
 
             containerRegistry.RegisterForNavigation<ConfigView, ConfigViewModel>();

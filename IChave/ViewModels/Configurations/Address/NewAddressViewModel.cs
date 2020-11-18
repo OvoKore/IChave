@@ -10,7 +10,6 @@ using IChave.ViewModels.Base;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
-using Realms;
 using Refit;
 
 namespace IChave.ViewModels.Configurations.Address
@@ -168,6 +167,7 @@ namespace IChave.ViewModels.Configurations.Address
                 City = AllCidades.Where(x => x.State == State.ID && x.Name == Cidade).First();
                 EnderecoHabilitado = false;
             }
+            HasInitialized = true;
         }
 
         public override void Destroy()
@@ -204,7 +204,6 @@ namespace IChave.ViewModels.Configurations.Address
                 IsBusy = false;
             }
         }
-
 
         private DelegateCommand registerCommand;
         public DelegateCommand RegisterCommand => registerCommand ??= new DelegateCommand(async () => await RegisterAsync(), () => !IsBusy);

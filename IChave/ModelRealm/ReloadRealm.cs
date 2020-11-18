@@ -42,5 +42,13 @@ namespace IChave.ModelRealm
                 realm.RemoveRange(Reload);
             });
         }
+
+        public void Logout()
+        {
+            realm.Write(() =>
+            {
+                realm.RemoveAll<TokenRealm>();
+            });
+        }
     }
 }

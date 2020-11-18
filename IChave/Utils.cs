@@ -14,7 +14,6 @@ using IChave.DTO;
 using IChave.ModelRealm;
 
 namespace IChave
-
 {
     public class Utils
     {

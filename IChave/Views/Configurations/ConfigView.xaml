@@ -7,7 +7,6 @@
     <ContentPage.Content>
         <StackLayout>
             <FlexLayout
-                Margin="0,0,0,0"
                 Padding="20,0"
                 AlignItems="Center"
                 HeightRequest="60">
@@ -48,7 +47,7 @@
             <BoxView Style="{StaticResource SeparatorItem}" />
 
             <Button
-                Margin="20,20"
+                Margin="20"
                 BackgroundColor="Red"
                 Command="{Binding LogoutCommand}"
                 HeightRequest="60"

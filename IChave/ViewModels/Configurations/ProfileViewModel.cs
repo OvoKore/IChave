@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IChave.DTO;
-using IChave.ModelRealm;
 using IChave.Models;
 using IChave.Validators;
 using IChave.ViewModels.Base;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
-using Realms;
 
 namespace IChave.ViewModels.Configurations
 {
@@ -81,6 +79,7 @@ namespace IChave.ViewModels.Configurations
         public override void Initialize(INavigationParameters parameters)
         {
             GetUser();
+            HasInitialized = true;
         }
 
         public async void GetUser()
