@@ -1,6 +1,5 @@
 ﻿using IChave.Controls;
 using IChave.Views.Configurations;
-using IChave.Views.Historic;
 using IChave.Views.Locksmith;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -19,7 +18,6 @@ namespace IChave.Views
             On<Android>().SetIsSmoothScrollEnabled(false);
 
             Children.Add(new CustomNavigationPage(new LocksmithListView()));
-            Children.Add(new CustomNavigationPage(new HistoricView()));
             Children.Add(new CustomNavigationPage(new ConfigView()));
         }
     }

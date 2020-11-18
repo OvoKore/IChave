@@ -11,7 +11,7 @@ namespace IChave.Views.Configurations.Address
         {
             InitializeComponent();
             Title = "Address";
-            IconImageSource = FileImageSource.FromFile("services.png");
+            IconImageSource = ImageSource.FromFile("services.png");
             NavigationPage.SetHasNavigationBar(this, true);
             On<iOS>().SetUseSafeArea(true);
         }

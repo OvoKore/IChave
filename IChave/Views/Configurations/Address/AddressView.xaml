@@ -3,11 +3,13 @@
     x:Class="IChave.Views.Configurations.Address.AddressView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
     <ContentPage.Content>
-        <StackLayout Margin="10">
+        <StackLayout Padding="10">
             <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
                 <CollectionView
                     x:Name="collectionView"
+                    EmptyView="Cadastre seu endereço principal"
                     ItemsSource="{Binding ListAddress}"
                     VerticalOptions="FillAndExpand">
                     <CollectionView.ItemsLayout>
@@ -30,15 +32,13 @@
                                             BackgroundColor="Red"
                                             Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.DeleteAddressCommand}"
                                             CommandParameter="{Binding .}"
-                                            IconImageSource="config.png"
+                                            IconImageSource="delete.png"
                                             Text="Delete" />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
 
                                 <Frame
-                                    Margin="5"
                                     Padding="5"
-                                    CornerRadius="25"
                                     HasShadow="True"
                                     VerticalOptions="Start">
                                     <Frame.Triggers>
@@ -46,13 +46,13 @@
                                             Binding="{Binding main}"
                                             TargetType="Frame"
                                             Value="True">
-                                            <Setter Property="BackgroundColor" Value="AntiqueWhite" />
+                                            <Setter Property="BackgroundColor" Value="Red" />
                                         </DataTrigger>
                                         <DataTrigger
                                             Binding="{Binding main}"
                                             TargetType="Frame"
                                             Value="False">
-                                            <Setter Property="BackgroundColor" Value="AliceBlue" />
+                                            <Setter Property="BackgroundColor" Value="#BA" />
                                         </DataTrigger>
                                     </Frame.Triggers>
 
@@ -60,6 +60,7 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="30" />
                                             <RowDefinition Height="2" />
+                                            <RowDefinition Height="20" />
                                             <RowDefinition Height="20" />
                                             <RowDefinition Height="20" />
                                             <RowDefinition Height="20" />
@@ -78,26 +79,29 @@
                                             HorizontalOptions="Fill"
                                             Color="Gray" />
 
-                                        <Grid Grid.Row="2" HorizontalOptions="StartAndExpand">
-                                            <Label Grid.Column="0" Text="{Binding cep, StringFormat='CEP: {0}'}" />
-                                            <Label Grid.Column="1" Text="{Binding uf, StringFormat='Estado: {0}'}" />
-                                        </Grid>
-
+                                        <Label
+                                            Grid.Row="2"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding cep, StringFormat='CEP: {0}'}" />
                                         <Label
                                             Grid.Row="3"
                                             HorizontalOptions="StartAndExpand"
-                                            Text="{Binding cidade, StringFormat='Cidade: {0}'}" />
+                                            Text="{Binding uf, StringFormat='Estado: {0}'}" />
                                         <Label
                                             Grid.Row="4"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Binding cidade, StringFormat='Cidade: {0}'}" />
+                                        <Label
+                                            Grid.Row="5"
                                             HorizontalOptions="StartAndExpand"
                                             Text="{Binding bairro, StringFormat='Bairro: {0}'}" />
 
                                         <Label
-                                            Grid.Row="5"
+                                            Grid.Row="6"
                                             HorizontalOptions="Start"
                                             Text="{Binding logradouro}" />
 
-                                        <Grid Grid.Row="6">
+                                        <Grid Grid.Row="7">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="35*" />
                                                 <ColumnDefinition Width="60*" />
@@ -125,7 +129,8 @@
             <Button
                 BackgroundColor="Green"
                 Command="{Binding NewAddressCommand}"
-                Text="Add" />
+                Text="Add"
+                VerticalOptions="EndAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

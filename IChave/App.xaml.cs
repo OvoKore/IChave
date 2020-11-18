@@ -11,8 +11,6 @@ using IChave.Views.Configurations;
 using IChave.ViewModels.Configurations;
 using IChave.ViewModels.Configurations.Address;
 using IChave.Views.Configurations.Address;
-using IChave.ViewModels.Historic;
-using IChave.Views.Historic;
 using IChave.Views.Locksmith;
 using IChave.ViewModels.Locksmith;
 
@@ -44,8 +42,6 @@ namespace IChave
             containerRegistry.RegisterForNavigation<SignUpView, SignUpViewModel>();
 
             containerRegistry.RegisterForNavigation<LocksmithView, LocksmithViewModel>();
-
-            containerRegistry.RegisterForNavigation<HistoricView, HistoricViewModel>();
 
             containerRegistry.RegisterForNavigation<ConfigView, ConfigViewModel>();
 

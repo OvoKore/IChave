@@ -1,9 +1,12 @@
-﻿using System;
-namespace IChave.DTO
+﻿namespace IChave.DTO
 {
     public class MsgDTO
     {
         public const string SUCESS = "sucess";
         public string msg { get; set; }
+
+        public MsgDTO()
+        {
+        }
     }
 }

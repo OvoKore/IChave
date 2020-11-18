@@ -23,7 +23,6 @@ namespace IChave.ViewModels.Base
         }
 
         bool isBusy;
-
         public bool IsBusy
         {
             get => isBusy;
@@ -35,7 +34,6 @@ namespace IChave.ViewModels.Base
         }
 
         bool isNotBusy = true;
-
         public bool IsNotBusy
         {
             get => isNotBusy;

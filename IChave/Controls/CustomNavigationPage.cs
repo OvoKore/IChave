@@ -9,7 +9,6 @@ namespace IChave.Controls
             Title = root.Title;
             IconImageSource = root.IconImageSource;
         }
-
         public CustomNavigationPage()
         {
         }

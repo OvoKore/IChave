@@ -10,8 +10,7 @@ namespace IChave.Views.LoginSignUp
         public SignUpView()
         {
             InitializeComponent();
-            this.BackgroundImageSource = FileImageSource.FromFile("icon_splash.png");
-            this.Title = "Sign Up";
+            Title = "Sign Up";
             NavigationPage.SetHasNavigationBar(this, true);
             On<iOS>().SetUseSafeArea(true);
         }

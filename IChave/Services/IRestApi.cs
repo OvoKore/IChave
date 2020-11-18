@@ -13,6 +13,9 @@ namespace IChave.Services
         Task<CepDTO> Cep(string cep);
 
         //TOKEN
+        [Post("/login")]
+        Task<TokenDTO> Login([Body(BodySerializationMethod.Serialized)] User user);
+
         [Post("/refresh-token")]
         [Headers("Authorization: Bearer")]
         Task<TokenDTO> RefreshToken();
@@ -21,17 +24,6 @@ namespace IChave.Services
         [Get("/get-user")]
         [Headers("Authorization: Bearer")]
         Task<User> GetUser();
-
-        [Get("/get-status")]
-        [Headers("Authorization: Bearer")]
-        Task<bool> GetStatusUser();
-
-        [Post("/login")]
-        Task<TokenDTO> Login([Body(BodySerializationMethod.Serialized)] User user);
-
-        [Post("/change-status")]
-        [Headers("Authorization: Bearer")]
-        Task<bool> ChangeStatusUser();
 
         [Post("/update-user")]
         [Headers("Authorization: Bearer")]
@@ -73,6 +65,6 @@ namespace IChave.Services
         //WHATSAPP
         [Get("/get-whatsapp-url")]
         [Headers("Authorization: Bearer")]
-        Task<List<Service>> GetWhatsapp([Body(BodySerializationMethod.Serialized)] int locksmith_id);
+        Task<MsgDTO> GetWhatsapp([Body(BodySerializationMethod.Serialized)] int service_id);
     }
 }

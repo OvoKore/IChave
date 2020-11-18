@@ -9,5 +9,9 @@ namespace IChave.DTO
         public DateTime fresh { get; set; }
         public DateTime expires_access { get; set; }
         public DateTime expires_refresh { get; set; }
+
+        public TokenDTO()
+        {
+        }
     }
 }

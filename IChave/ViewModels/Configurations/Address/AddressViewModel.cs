@@ -107,15 +107,11 @@ namespace IChave.ViewModels.Configurations.Address
         {
             if (HasInitialized)
             {
-                var realm = Realm.GetInstance();
-                var find_reload = realm.All<ReloadRealm>().Where(x => x.Name == "GetAddressList");
-                if (find_reload.Count() != 0)
+                var reload = new ReloadRealm("GetAddressList");
+                if (reload.Get().Count() != 0)
                 {
                     GetAddressList();
-                    realm.Write(() =>
-                    {
-                        realm.RemoveRange(find_reload);
-                    });
+                    reload.Remove();
                 }
             }
         }

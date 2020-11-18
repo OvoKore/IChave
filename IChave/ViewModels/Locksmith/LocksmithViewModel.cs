@@ -66,10 +66,8 @@ namespace IChave.ViewModels.Locksmith
         {
             try
             {
-                string Url = "https://api.whatsapp.com/send?phone=";
-                Url += "+55" + Locksmith.cell_phone;
-                Url += "&text=" + "ola";
-                var a = Launcher.OpenAsync(Url);
+                MsgDTO apiRetorno = await Utils.GetApi().GetWhatsapp(service.id);
+                _ = Launcher.OpenAsync(apiRetorno.msg);
             }
             catch (Exception ex)
             {

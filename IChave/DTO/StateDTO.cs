@@ -1,5 +1,4 @@
-﻿using System;
-namespace IChave.DTO
+﻿namespace IChave.DTO
 {
     public class StateDTO
     {
@@ -7,6 +6,8 @@ namespace IChave.DTO
         public string Name { get; set; }
         public string StateAbbreviation { get; set; }
 
-        public StateDTO() { }
+        public StateDTO()
+        {
+        }
     }
 }

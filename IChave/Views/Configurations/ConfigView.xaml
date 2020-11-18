@@ -3,33 +3,6 @@
     x:Class="IChave.Views.Configurations.ConfigView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-
-            <Style x:Key="DefaultImage" TargetType="Image">
-                <Setter Property="FlexLayout.Basis" Value="30" />
-                <Setter Property="HeightRequest" Value="30" />
-            </Style>
-
-            <Style x:Key="DefaultItem" TargetType="Label">
-                <Setter Property="FontSize" Value="Title" />
-                <Setter Property="Padding" Value="20,0,0,0" />
-                <Setter Property="FlexLayout.Grow" Value="1" />
-            </Style>
-
-            <Style x:Key="ArrowIconItem" TargetType="Image">
-                <Setter Property="FlexLayout.Basis" Value="18" />
-                <Setter Property="HeightRequest" Value="18" />
-                <Setter Property="Source" Value="right_arrow" />
-            </Style>
-
-            <Style x:Key="SeparatorItem" TargetType="BoxView">
-                <Setter Property="BackgroundColor" Value="#E5E5E5" />
-                <Setter Property="HeightRequest" Value="1" />
-            </Style>
-
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout>
@@ -37,7 +10,6 @@
                 Margin="0,0,0,0"
                 Padding="20,0"
                 AlignItems="Center"
-                BackgroundColor="White"
                 HeightRequest="60">
                 <FlexLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding ProfileCommand}" />
@@ -51,7 +23,6 @@
             <FlexLayout
                 Padding="20,0"
                 AlignItems="Center"
-                BackgroundColor="White"
                 HeightRequest="60">
                 <FlexLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AddressCommand}" />
@@ -65,7 +36,6 @@
             <FlexLayout
                 Padding="20,0"
                 AlignItems="Center"
-                BackgroundColor="White"
                 HeightRequest="60">
                 <FlexLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding AboutCommand}" />

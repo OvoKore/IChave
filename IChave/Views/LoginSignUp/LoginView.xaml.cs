@@ -10,7 +10,6 @@ namespace IChave.Views.LoginSignUp
         public LoginView()
         {
             InitializeComponent();
-            this.BackgroundImageSource = FileImageSource.FromFile("icon_splash.png");
             NavigationPage.SetHasNavigationBar(this, false);
             On<iOS>().SetUseSafeArea(true);
         }

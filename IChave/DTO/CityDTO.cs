@@ -6,6 +6,8 @@
         public string Name { get; set; }
         public int State { get; set; }
 
-        public CityDTO() { }
+        public CityDTO()
+        {
+        }
     }
 }

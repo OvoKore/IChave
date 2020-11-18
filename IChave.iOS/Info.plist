@@ -32,11 +32,11 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>IChave</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-    	<string>whatsapp</string>
+		<string>whatsapp</string>
 	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>

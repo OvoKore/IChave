@@ -83,19 +83,6 @@ namespace IChave.ViewModels.Configurations
             GetUser();
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            var realm = Realm.GetInstance();
-            var find_reload = realm.All<ReloadRealm>().Where(x => x.Name == "GetUser");
-            if (find_reload.Count() != 0)
-            {
-                realm.Write(() =>
-                {
-                    realm.RemoveRange(find_reload);
-                });
-            }
-        }
-
         public async void GetUser()
         {
             try
@@ -155,6 +142,7 @@ namespace IChave.ViewModels.Configurations
                     if (apiRetorno.msg == MsgDTO.SUCESS)
                     {
                         await PageDialogService.DisplayAlertAsync("Update", "User updated!", "OK");
+                        await NavigationService.GoBackAsync();
                     }
                     else
                     {

@@ -24,6 +24,13 @@ namespace IChave.ViewModels.Configurations.Address
         }
 
         #region Fields
+        private bool _back = false;
+        public bool Back
+        {
+            get => _back;
+            set => SetProperty(ref _back, value);
+        }
+
         private List<StateDTO> _allEstados = Utils.GetStates();
         public List<StateDTO> AllEstados
         {
@@ -51,7 +58,10 @@ namespace IChave.ViewModels.Configurations.Address
             set
             {
                 SetProperty(ref _state, value);
-                ListCidade = AllCidades.Where(c => c.State == value.ID).ToList<CityDTO>();
+                if (!Back)
+                {
+                    ListCidade = AllCidades.Where(c => c.State == value.ID).ToList<CityDTO>();
+                }
                 City = null;
             }
         }
@@ -160,6 +170,11 @@ namespace IChave.ViewModels.Configurations.Address
             }
         }
 
+        public override void Destroy()
+        {
+            Back = true;
+        }
+
         private DelegateCommand consultarCepCommand;
         public DelegateCommand ConsultarCepCommand => consultarCepCommand ??= new DelegateCommand(async () => await ConsultarCepAsync(), () => !IsBusy);
 
@@ -172,7 +187,7 @@ namespace IChave.ViewModels.Configurations.Address
                 if (cepResposta != null)
                 {
                     State = AllEstados.Where(e => e.StateAbbreviation == cepResposta.uf).First();
-                    ListCidade = AllCidades.Where(c => c.State == State.ID).ToList<CityDTO>();
+                    ListCidade = AllCidades.Where(c => c.State == State.ID).ToList();
                     City = ListCidade.Where(c => c.Name == cepResposta.localidade).First();
                     Bairro = cepResposta.bairro;
                     Logradouro = cepResposta.logradouro;
@@ -237,11 +252,7 @@ namespace IChave.ViewModels.Configurations.Address
                                 await PageDialogService.DisplayAlertAsync("UPDATE", "Updated successfully!", "OK");
                             }
                         }
-                        var realm = Realm.GetInstance();
-                        realm.Write(() =>
-                        {
-                            realm.Add(new ReloadRealm("GetAddressList"));
-                        });
+                        new ReloadRealm("GetAddressList").Add();
                         await NavigationService.GoBackAsync();
                     }
                     catch (ApiException ex)
