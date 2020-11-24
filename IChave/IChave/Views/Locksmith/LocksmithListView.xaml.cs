@@ -10,7 +10,7 @@ namespace IChave.Views.Locksmith
         public LocksmithListView()
         {
             InitializeComponent();
-            Title = "Locksmith";
+            Title = "Chaveiros";
             IconImageSource = ImageSource.FromFile("demand.png");
             NavigationPage.SetHasNavigationBar(this, false);
             On<iOS>().SetUseSafeArea(true);

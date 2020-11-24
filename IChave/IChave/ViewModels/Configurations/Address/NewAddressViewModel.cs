@@ -167,6 +167,10 @@ namespace IChave.ViewModels.Configurations.Address
                 City = AllCidades.Where(x => x.State == State.ID && x.Name == Cidade).First();
                 EnderecoHabilitado = false;
             }
+            else
+            {
+                Main = true;
+            }
             HasInitialized = true;
         }
 
